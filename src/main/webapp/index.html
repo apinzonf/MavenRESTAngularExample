@@ -1,0 +1,56 @@
+<!doctype html>
+<html >
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<title>Socialbook</title>
+		
+	</head>
+
+	<body ng-app="memberApp" class="ng-cloak" >
+		<divclass="generic-container" ng-controller="MemberController">
+		 <p>Hola: <span ng-bind="hola"> {{hola}} </span> </p>
+			 <table class="table">
+                <tr ng-repeat="m in members">
+                	<td><span ng-bind="m.email"></span></td>
+                    <td><span ng-bind="m.name"></span></td>
+                </tr>
+            </table>
+            
+          <form ng-submit="submit()" name="myForm" class="form-horizontal">
+            
+            <div class="tablecontainer">
+                  <table class="table table-hover">
+                      <thead>
+                          <tr>
+                              <th>Email</th>
+                              <th>Name</th>
+                              <th width="20%"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="m in members">
+                              <td><span ng-bind="m.email"></span></td>
+                              <td><span ng-bind="m.name"></span></td>
+                              <td>
+                              <button type="button" 
+                              	ng-click="edit(m.email)" 
+                              	class="btn btn-success custom-width">Edit</button>  
+                              <button type="button" 
+                              	ng-click="remove(m.email)" 
+                              	class="btn btn-danger custom-width">Remove</button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+            
+		</div>
+		
+		<script src="js/angular.min.js"></script>	
+    	<script src="js/member_app.js"></script>
+    	<script src="js/member_service.js"></script>
+    	<script src="js/member_controller.js"></script>
+		
+	</body>
+</html>
